@@ -29,12 +29,12 @@
             </div>
 
             <div class="form-group">
-                <label>Roll No.</label>
+                <label>Roll Number</label>
                 <input type="text" name="role" class="form-control span12">
             </div>
 
             <div class="form-group">
-                <label>Reg. No.</label>
+                <label>Registration Number</label>
                 <input type="text" name="registration" class="form-control span12">
             </div>
 

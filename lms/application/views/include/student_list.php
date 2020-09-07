@@ -8,26 +8,37 @@
         <thead>
 
             <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Role Number</th>
+                <th>Registration Number</th>
+                <th>Phone</th>
                 <th style="width: 3.5em;"></th>
             </tr>
         </thead>
 
         <tbody>
 
-            <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Tompson</td>
-                <td>the_mark7</td>
-                <td>
-                    <a href="user.html"><i class="fa fa-pencil"></i></a>
-                    <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-                </td>
-            </tr>
+<?php
+            foreach($studentData as $s)
+            {
+?>
+                <tr>
+                    <td><?php echo $s->id; ?></td>
+                    <td><?php echo $s->name; ?></td>
+                    <td><?php echo $s->department; ?></td>
+                    <td><?php echo $s->role; ?></td>
+                    <td><?php echo $s->registration; ?></td>
+                    <td><?php echo $s->phone; ?></td>
+                    <td>
+                        <a href="user.html"><i class="fa fa-pencil"></i></a>
+                        <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>
+<?php
+            }
+?>
 
         </tbody>
 

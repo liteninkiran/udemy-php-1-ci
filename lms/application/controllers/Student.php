@@ -47,10 +47,12 @@
 
         public function studentList()
         {
+            $data['studentData'] = $this->student_model->getAllRecords();
+
             $data['title'] = 'Student List';
             $data['header'] = $this->load->view('include/header', $data, TRUE);
             $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
-            $data['content'] = $this->load->view('include/student_list', '', TRUE);
+            $data['content'] = $this->load->view('include/student_list', $data, TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
             $this->load->view('student_list', $data);
