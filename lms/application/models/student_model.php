@@ -18,6 +18,19 @@
 
             return $result;
         }
+
+        public function getById($id)
+        {
+            $this->db->select('*');
+            $this->db->from('tbl_student');
+            $this->db->where('id', $id);
+
+            $query = $this->db->get();
+            $result = $query->row();
+
+            return $result;
+        }
+
     }
 
 

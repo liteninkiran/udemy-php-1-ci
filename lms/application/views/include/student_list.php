@@ -21,18 +21,21 @@
         <tbody>
 
 <?php
+            $i = 0;
+
             foreach($studentData as $s)
             {
+                $i++;
 ?>
                 <tr>
-                    <td><?php echo $s->id; ?></td>
+                    <td><?php echo $i; ?></td>
                     <td><?php echo $s->name; ?></td>
                     <td><?php echo $s->department; ?></td>
                     <td><?php echo $s->role; ?></td>
                     <td><?php echo $s->registration; ?></td>
                     <td><?php echo $s->phone; ?></td>
                     <td>
-                        <a href="user.html"><i class="fa fa-pencil"></i></a>
+                        <a href="<?php echo base_url(); ?>student/editStudent/<?php echo $s->id; ?>"><i class="fa fa-pencil"></i></a>
                         <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>

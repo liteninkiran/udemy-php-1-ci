@@ -24,6 +24,19 @@
             $this->load->view('add_student', $data);
         }
 
+        public function editStudent($id)
+        {
+            $data['studentData'] = $this->student_model->getById($id);
+
+            $data['title'] = 'Student List';
+            $data['header'] = $this->load->view('include/header', $data, TRUE);
+            $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
+            $data['content'] = $this->load->view('include/student_edit', $data, TRUE);
+            $data['footer'] = $this->load->view('include/footer', '', TRUE);
+
+            $this->load->view('edit_student', $data);
+        }
+
         public function addStudentForm()
         {
 
