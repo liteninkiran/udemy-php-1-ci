@@ -1,4 +1,13 @@
+<?php
 
+    $msg = $this->session->flashdata('msg');
+
+    if(isset($msg))
+    {
+        echo $msg;
+    }
+
+?>
     <h2>Student List</h2>
 
     <hr/>

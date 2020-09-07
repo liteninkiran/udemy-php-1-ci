@@ -39,7 +39,6 @@
 
         public function addStudentForm()
         {
-
             $name           = $this->input->post('name')         == '' ? null : $this->input->post('name');
             $department     = $this->input->post('department')   == '' ? null : $this->input->post('department');
             $role           = $this->input->post('role')         == '' ? null : $this->input->post('role');
@@ -52,10 +51,31 @@
             $data['registration']   = $registration;
             $data['phone']          = $phone;
 
-            $this->student_model->saveStudent($data);
+            $this->student_model->insertStudent($data);
             $dataStudent['msg'] = '<span style="color:green">Record Ceated Successfully</span>';
             $this->session->set_flashdata($dataStudent);
-            redirect('student/addStudent');
+            redirect('student/studentList/');
+        }
+
+        public function editStudentForm()
+        {
+            $id             = $this->input->post('id')           == '' ? null : $this->input->post('id');
+            $name           = $this->input->post('name')         == '' ? null : $this->input->post('name');
+            $department     = $this->input->post('department')   == '' ? null : $this->input->post('department');
+            $role           = $this->input->post('role')         == '' ? null : $this->input->post('role');
+            $registration   = $this->input->post('registration') == '' ? null : $this->input->post('registration');
+            $phone          = $this->input->post('phone')        == '' ? null : $this->input->post('phone');
+
+            $data['name']           = $name;
+            $data['department']     = $department;
+            $data['role']           = $role;
+            $data['registration']   = $registration;
+            $data['phone']          = $phone;
+
+            $this->student_model->updateStudent($data, $id);
+            $dataStudent['msg'] = '<span style="color:green">Record Updated Successfully</span>';
+            $this->session->set_flashdata($dataStudent);
+            redirect('student/studentList/');
         }
 
         public function studentList()

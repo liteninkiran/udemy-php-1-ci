@@ -30,12 +30,12 @@
 
             <div class="form-group">
                 <label>Role Number</label>
-                <input type="text" name="role" class="form-control span12">
+                <input type="number" name="role" class="form-control span12">
             </div>
 
             <div class="form-group">
                 <label>Registration Number</label>
-                <input type="text" name="registration" class="form-control span12">
+                <input type="number" name="registration" class="form-control span12">
             </div>
 
             <div class="form-group">
