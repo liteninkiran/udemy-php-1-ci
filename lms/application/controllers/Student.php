@@ -31,6 +31,27 @@
             $data['role']           = $this->input->post('role');
             $data['registration']   = $this->input->post('registration');
             $data['phone']          = $this->input->post('phone');
+
+            $name           = $data['name'];
+            $department     = $data['department'];
+            $role           = $data['role'];
+            $registration   = $data['registration'];
+            $phone          = $data['phone'];
+
+            if(empty($name) && empty($department) && empty($role) && empty($registration) && empty($phone))
+            {
+                $data2 = array();
+                $data2['msg'] = '<span style="color:red">Field must not be empty</span>';
+
+                $this->session->set_flashdata($data2);
+
+                redirect('student/addStudent');
+            }
+            else
+            {
+                
+            }
+
         }
     }
 ?>
