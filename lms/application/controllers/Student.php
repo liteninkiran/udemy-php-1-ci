@@ -10,7 +10,7 @@
 
             $data = array();
 
-            //$this->load->model('Student_Model');
+            $this->load->model('student_model');
         }
 
         public function addStudent()
@@ -26,32 +26,35 @@
 
         public function addStudentForm()
         {
-            $data['name']           = $this->input->post('name');
-            $data['department']     = $this->input->post('department');
-            $data['role']           = $this->input->post('role');
-            $data['registration']   = $this->input->post('registration');
-            $data['phone']          = $this->input->post('phone');
 
-            $name           = $data['name'];
-            $department     = $data['department'];
-            $role           = $data['role'];
-            $registration   = $data['registration'];
-            $phone          = $data['phone'];
+            $name           = $this->input->post('name')         == '' ? null : $this->input->post('name');
+            $department     = $this->input->post('department')   == '' ? null : $this->input->post('department');
+            $role           = $this->input->post('role')         == '' ? null : $this->input->post('role');
+            $registration   = $this->input->post('registration') == '' ? null : $this->input->post('registration');
+            $phone          = $this->input->post('phone')        == '' ? null : $this->input->post('phone');
 
-            if(empty($name) && empty($department) && empty($role) && empty($registration) && empty($phone))
+            $data['name']           = $name;
+            $data['department']     = $department;
+            $data['role']           = $role;
+            $data['registration']   = $registration;
+            $data['phone']          = $phone;
+/*
+            $dataStudent = array();
+
+            if(empty($name) && empty($department))
             {
-                $data2 = array();
-                $data2['msg'] = '<span style="color:red">Field must not be empty</span>';
-
-                $this->session->set_flashdata($data2);
-
-                redirect('student/addStudent');
+                $dataStudent['msg'] = '<span style="color:red">Please specify a value for [Student Name] and [Department]</span>';
             }
             else
             {
-                
+                $this->student_model->saveStudent($data);
+                $dataStudent['msg'] = '<span style="color:green">Record Ceated Successfully</span>';
             }
-
+*/
+            $this->student_model->saveStudent($data);
+            $dataStudent['msg'] = '<span style="color:green">Record Ceated Successfully</span>';
+            $this->session->set_flashdata($dataStudent);
+            redirect('student/addStudent');
         }
     }
 ?>

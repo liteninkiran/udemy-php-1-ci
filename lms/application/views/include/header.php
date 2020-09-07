@@ -17,6 +17,14 @@
         <script src="<?php echo base_url(); ?>lib/jquery-1.11.1.min.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>style/theme.css"/>
 
+        <style>
+            .required:after
+            {
+                content:" *";
+                color: red;
+            }
+        </style>
+
     </head>
 
     <body class=" theme-blue">

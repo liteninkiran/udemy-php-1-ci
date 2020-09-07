@@ -19,13 +19,13 @@
         <form action="<?php echo base_url(); ?>student/addStudentForm" method="post">
 
             <div class="form-group">
-                <label>Student Name</label>
-                <input type="text" name="name" class="form-control span12">
+                <label class="required">Student Name</label>
+                <input type="text" name="name" class="form-control span12" required>
             </div>
 
             <div class="form-group">
-                <label>Department</label>
-                <input type="text" name="department" class="form-control span12">
+                <label class="required">Department</label>
+                <input type="text" name="department" class="form-control span12" required>
             </div>
 
             <div class="form-group">
