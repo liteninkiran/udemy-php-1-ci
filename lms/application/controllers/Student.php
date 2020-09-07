@@ -18,7 +18,7 @@
             $data['title'] = 'Add New Student';
             $data['header'] = $this->load->view('include/header', $data, TRUE);
             $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
-            $data['content'] = $this->load->view('include/studentAdd', '', TRUE);
+            $data['content'] = $this->load->view('include/student_add', '', TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
             $this->load->view('add_student', $data);
@@ -38,23 +38,23 @@
             $data['role']           = $role;
             $data['registration']   = $registration;
             $data['phone']          = $phone;
-/*
-            $dataStudent = array();
 
-            if(empty($name) && empty($department))
-            {
-                $dataStudent['msg'] = '<span style="color:red">Please specify a value for [Student Name] and [Department]</span>';
-            }
-            else
-            {
-                $this->student_model->saveStudent($data);
-                $dataStudent['msg'] = '<span style="color:green">Record Ceated Successfully</span>';
-            }
-*/
             $this->student_model->saveStudent($data);
             $dataStudent['msg'] = '<span style="color:green">Record Ceated Successfully</span>';
             $this->session->set_flashdata($dataStudent);
             redirect('student/addStudent');
         }
+
+        public function studentList()
+        {
+            $data['title'] = 'Student List';
+            $data['header'] = $this->load->view('include/header', $data, TRUE);
+            $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
+            $data['content'] = $this->load->view('include/student_list', '', TRUE);
+            $data['footer'] = $this->load->view('include/footer', '', TRUE);
+
+            $this->load->view('student_list', $data);
+        }
+
     }
 ?>

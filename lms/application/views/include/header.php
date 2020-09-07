@@ -31,8 +31,8 @@
 
         <div class="navbar navbar-default" role="navigation">
 
-            <div class="navbar-header custommenu">
-                Library Management
+            <div>
+                <a class="custommenu" href="<?php echo base_url(); ?>">Library Management</a>
             </div>
 
             <div class="navbar-collapse collapse" style="height: 1px;">

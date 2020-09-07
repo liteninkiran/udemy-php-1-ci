@@ -12,7 +12,7 @@
                     <ul class="dashboard-menu nav nav-list collapse in">
 
                         <li><a href="<?php echo base_url(); ?>student/addStudent.php"><span class="fa fa-caret-right"></span>Add Student</a></li>
-                        <li><a href="studentlist.html"><span class="fa fa-caret-right"></span>Student List</a></li>
+                        <li><a href="<?php echo base_url(); ?>student/studentList.php"><span class="fa fa-caret-right"></span>Student List</a></li>
                         
                         <li><a href="adddep.html"><span class="fa fa-caret-right"></span>Add Department</a></li>
                         <li><a href="deplist.html"><span class="fa fa-caret-right"></span>Department List</a></li>
