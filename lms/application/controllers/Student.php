@@ -23,5 +23,14 @@
 
             $this->load->view('add_student', $data);
         }
+
+        public function addStudentForm()
+        {
+            $data['name']           = $this->input->post('name');
+            $data['department']     = $this->input->post('department');
+            $data['role']           = $this->input->post('role');
+            $data['registration']   = $this->input->post('registration');
+            $data['phone']          = $this->input->post('phone');
+        }
     }
 ?>
