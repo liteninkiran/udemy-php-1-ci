@@ -27,7 +27,7 @@
         {
             $this->db->select('*');
             $this->db->from('tbl_student');
-            $this->db->order_by('id', 'desc');
+            $this->db->order_by('name');
 
             $query = $this->db->get();
             $result = $query->result();
