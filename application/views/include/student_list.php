@@ -34,12 +34,14 @@
 
             foreach($studentData as $s)
             {
+                $department = $this->department_model->getById($s->department_id);
+
                 $i++;
 ?>
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $s->name; ?></td>
-                    <td><?php echo $s->department; ?></td>
+                    <td><?php echo $department->name; ?></td>
                     <td><?php echo $s->role; ?></td>
                     <td><?php echo $s->registration; ?></td>
                     <td><?php echo $s->phone; ?></td>

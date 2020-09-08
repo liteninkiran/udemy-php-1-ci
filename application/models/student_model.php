@@ -10,11 +10,11 @@
         public function updateStudent($data, $id)
         {
             // Set field values
-            $this->db->set('name'        , $data['name']);
-            $this->db->set('department'  , $data['department']);
-            $this->db->set('role'        , $data['role']);
-            $this->db->set('registration', $data['registration']);
-            $this->db->set('phone'       , $data['name']);
+            $this->db->set('name'          , $data['name']);
+            $this->db->set('department_id' , $data['department_id']);
+            $this->db->set('role'          , $data['role']);
+            $this->db->set('registration'  , $data['registration']);
+            $this->db->set('phone'         , $data['phone']);
 
             // Find record to update
             $this->db->where('id', $id);            

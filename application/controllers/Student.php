@@ -11,6 +11,7 @@
             $data = array();
 
             $this->load->model('student_model');
+            $this->load->model('department_model');
         }
 
         public function studentList()
@@ -28,10 +29,12 @@
 
         public function addStudent()
         {
+            $data['departmentData'] = $this->department_model->getAllRecords();
+
             $data['title'] = 'Add Student';
             $data['header'] = $this->load->view('include/header', $data, TRUE);
             $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
-            $data['content'] = $this->load->view('include/student_add', '', TRUE);
+            $data['content'] = $this->load->view('include/student_add', $data, TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
             $this->load->view('add_student', $data);
@@ -40,6 +43,7 @@
         public function editStudent($id)
         {
             $data['studentData'] = $this->student_model->getById($id);
+            $data['departmentData'] = $this->department_model->getAllRecords();
 
             $data['title'] = 'Edit Student';
             $data['header'] = $this->load->view('include/header', $data, TRUE);
@@ -61,14 +65,15 @@
 
         public function addStudentForm()
         {
-            $name           = $this->input->post('name')         == '' ? null : $this->input->post('name');
-            $department     = $this->input->post('department')   == '' ? null : $this->input->post('department');
-            $role           = $this->input->post('role')         == '' ? null : $this->input->post('role');
-            $registration   = $this->input->post('registration') == '' ? null : $this->input->post('registration');
-            $phone          = $this->input->post('phone')        == '' ? null : $this->input->post('phone');
+            $name           = $this->input->post('name')          == '' ? null : $this->input->post('name');
+            $department     = $this->input->post('department')    == '' ? null : $this->input->post('department');
+            $department_id  = $this->input->post('department_id') == '' ? null : $this->input->post('department_id');
+            $role           = $this->input->post('role')          == '' ? null : $this->input->post('role');
+            $registration   = $this->input->post('registration')  == '' ? null : $this->input->post('registration');
+            $phone          = $this->input->post('phone')         == '' ? null : $this->input->post('phone');
 
             $data['name']           = $name;
-            $data['department']     = $department;
+            $data['department_id']  = $department_id;
             $data['role']           = $role;
             $data['registration']   = $registration;
             $data['phone']          = $phone;
@@ -81,15 +86,16 @@
 
         public function editStudentForm()
         {
-            $id             = $this->input->post('id')           == '' ? null : $this->input->post('id');
-            $name           = $this->input->post('name')         == '' ? null : $this->input->post('name');
-            $department     = $this->input->post('department')   == '' ? null : $this->input->post('department');
-            $role           = $this->input->post('role')         == '' ? null : $this->input->post('role');
-            $registration   = $this->input->post('registration') == '' ? null : $this->input->post('registration');
-            $phone          = $this->input->post('phone')        == '' ? null : $this->input->post('phone');
+            $id             = $this->input->post('id')             == '' ? null : $this->input->post('id');
+            $name           = $this->input->post('name')           == '' ? null : $this->input->post('name');
+            $department     = $this->input->post('department')     == '' ? null : $this->input->post('department');
+            $department_id  = $this->input->post('department_id')  == '' ? null : $this->input->post('department_id');
+            $role           = $this->input->post('role')           == '' ? null : $this->input->post('role');
+            $registration   = $this->input->post('registration')   == '' ? null : $this->input->post('registration');
+            $phone          = $this->input->post('phone')          == '' ? null : $this->input->post('phone');
 
             $data['name']           = $name;
-            $data['department']     = $department;
+            $data['department_id']  = $department_id;
             $data['role']           = $role;
             $data['registration']   = $registration;
             $data['phone']          = $phone;

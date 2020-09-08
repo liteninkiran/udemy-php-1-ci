@@ -14,6 +14,17 @@
 
 ?>
 
+    <style>
+
+        .department
+        {
+            border: 1px solid #ddd;
+            padding: 5px;
+            width: 100%;
+        }
+
+    </style>
+
     <div class="panel-body" style="width:600px;">
 
         <form action="<?php echo base_url(); ?>student/addStudentForm" method="post">
@@ -24,8 +35,20 @@
             </div>
 
             <div class="form-group">
-                <label class="required">Department</label>
-                <input type="text" name="department" class="form-control span12" required>
+                <label class="required">Department</label><br>
+                <select name="department_id" class="department" required>
+                    <option value="">PLEASE SELECT</option>
+<?php
+                    foreach($departmentData as $d)
+                    {
+?>
+                        <option value="<?php echo $d->id; ?>"><?php echo $d->name; ?></option>
+<?php  
+                    }
+?>
+
+
+                </select>
             </div>
 
             <div class="form-group">
