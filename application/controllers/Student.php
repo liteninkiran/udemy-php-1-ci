@@ -74,9 +74,9 @@
             $data['phone']          = $phone;
 
             $this->student_model->insertStudent($data);
-            $dataStudent['msg'] = '<span style="color:green">Record Ceated Successfully</span>';
+            $dataStudent['msg'] = '<span style="color:green">Record Created Successfully</span>';
             $this->session->set_flashdata($dataStudent);
-            redirect('student/studentList/');
+            redirect('student/studentList');
         }
 
         public function editStudentForm()
@@ -97,7 +97,7 @@
             $this->student_model->updateStudent($data, $id);
             $dataStudent['msg'] = '<span style="color:green">Record Updated Successfully</span>';
             $this->session->set_flashdata($dataStudent);
-            redirect('student/studentList/');
+            redirect('student/studentList');
         }
     }
 ?>

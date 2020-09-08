@@ -17,7 +17,7 @@
         <thead>
 
             <tr>
-                <th>ID</th>
+                <th>Row</th>
                 <th>Name</th>
                 <th>Department</th>
                 <th>Role Number</th>

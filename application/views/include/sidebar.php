@@ -14,8 +14,8 @@
                         <li><a href="<?php echo base_url(); ?>student/addStudent"><span class="fa fa-caret-right"></span>Add Student</a></li>
                         <li><a href="<?php echo base_url(); ?>student/studentList"><span class="fa fa-caret-right"></span>Student List</a></li>
                         
-                        <li><a href="adddep.html"><span class="fa fa-caret-right"></span>Add Department</a></li>
-                        <li><a href="deplist.html"><span class="fa fa-caret-right"></span>Department List</a></li>
+                        <li><a href="<?php echo base_url(); ?>department/addDepartment"><span class="fa fa-caret-right"></span>Add Department</a></li>
+                        <li><a href="<?php echo base_url(); ?>department/departmentList"><span class="fa fa-caret-right"></span>Department List</a></li>
                                             
                         <li><a href="addauthor.html"><span class="fa fa-caret-right"></span>Add Author</a></li>
                         <li><a href="authorlist.html"><span class="fa fa-caret-right"></span>Author List</a></li>
