@@ -13,9 +13,22 @@
             $this->load->model('student_model');
         }
 
+        public function studentList()
+        {
+            $data['studentData'] = $this->student_model->getAllRecords();
+
+            $data['title'] = 'Student List';
+            $data['header'] = $this->load->view('include/header', $data, TRUE);
+            $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
+            $data['content'] = $this->load->view('include/student_list', $data, TRUE);
+            $data['footer'] = $this->load->view('include/footer', '', TRUE);
+
+            $this->load->view('student_list', $data);
+        }
+
         public function addStudent()
         {
-            $data['title'] = 'Add New Student';
+            $data['title'] = 'Add Student';
             $data['header'] = $this->load->view('include/header', $data, TRUE);
             $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
             $data['content'] = $this->load->view('include/student_add', '', TRUE);
@@ -28,13 +41,22 @@
         {
             $data['studentData'] = $this->student_model->getById($id);
 
-            $data['title'] = 'Student List';
+            $data['title'] = 'Edit Student';
             $data['header'] = $this->load->view('include/header', $data, TRUE);
             $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
             $data['content'] = $this->load->view('include/student_edit', $data, TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
             $this->load->view('edit_student', $data);
+        }
+
+        public function deleteStudent($id)
+        {
+            $this->student_model->deleteById($id);
+
+            $dataStudent['msg'] = '<span style="color:red">Record Deleted Successfully</span>';
+            $this->session->set_flashdata($dataStudent);
+            redirect('student/studentList/');
         }
 
         public function addStudentForm()
@@ -77,19 +99,5 @@
             $this->session->set_flashdata($dataStudent);
             redirect('student/studentList/');
         }
-
-        public function studentList()
-        {
-            $data['studentData'] = $this->student_model->getAllRecords();
-
-            $data['title'] = 'Student List';
-            $data['header'] = $this->load->view('include/header', $data, TRUE);
-            $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
-            $data['content'] = $this->load->view('include/student_list', $data, TRUE);
-            $data['footer'] = $this->load->view('include/footer', '', TRUE);
-
-            $this->load->view('student_list', $data);
-        }
-
     }
 ?>

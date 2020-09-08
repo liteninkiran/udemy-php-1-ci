@@ -47,6 +47,11 @@
             return $result;
         }
 
+        public function deleteById($id)
+        {
+            $this->db->where('id', $id);
+            $this->db->delete('tbl_student');
+        }
     }
 
 

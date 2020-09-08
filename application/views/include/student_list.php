@@ -45,7 +45,7 @@
                     <td><?php echo $s->phone; ?></td>
                     <td>
                         <a href="<?php echo base_url(); ?>student/editStudent/<?php echo $s->id; ?>"><i class="fa fa-pencil"></i></a>
-                        <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                        <a href="<?php echo base_url(); ?>student/deleteStudent/<?php echo $s->id; ?>" role="button" data-toggle="modal" onclick="return confirm('Would you like to delete this record?')"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
 <?php
