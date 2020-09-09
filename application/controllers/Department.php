@@ -21,7 +21,7 @@
             $data['content'] = $this->load->view('include/department_add', '', TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
-            $this->load->view('add_department', $data);
+            $this->load->view('home', $data);
         }
 
         public function addDepartmentForm()
@@ -46,7 +46,7 @@
             $data['content'] = $this->load->view('include/department_list', $data, TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
-            $this->load->view('department_list', $data);
+            $this->load->view('home', $data);
         }
 
         public function deleteDepartment($id)
@@ -68,7 +68,7 @@
             $data['content'] = $this->load->view('include/department_edit', $data, TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
-            $this->load->view('edit_department', $data);
+            $this->load->view('home', $data);
         }
 
         public function editDepartmentForm()

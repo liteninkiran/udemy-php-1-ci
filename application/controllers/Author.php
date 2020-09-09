@@ -21,7 +21,7 @@
             $data['content'] = $this->load->view('include/author_add', '', TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
-            $this->load->view('add_author', $data);
+            $this->load->view('home', $data);
         }
 
         public function addAuthorForm()
@@ -46,7 +46,7 @@
             $data['content'] = $this->load->view('include/author_list', $data, TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
-            $this->load->view('author_list', $data);
+            $this->load->view('home', $data);
         }
 
         public function deleteAuthor($id)
@@ -68,7 +68,7 @@
             $data['content'] = $this->load->view('include/author_edit', $data, TRUE);
             $data['footer'] = $this->load->view('include/footer', '', TRUE);
 
-            $this->load->view('edit_author', $data);
+            $this->load->view('home', $data);
         }
 
         public function editAuthorForm()
