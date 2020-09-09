@@ -1,32 +1,28 @@
 <?php
 
-    class Student_Model extends CI_Model
+    class Department_Model extends CI_Model
     {
-        public function insertStudent($data)
+        public function insertDepartment($data)
         {
-            $this->db->insert('tbl_student', $data);
+            $this->db->insert('tbl_department', $data);
         }
 
-        public function updateStudent($data, $id)
+        public function updateDepartment($data, $id)
         {
             // Set field values
-            $this->db->set('name'          , $data['name']);
-            $this->db->set('department_id' , $data['department_id']);
-            $this->db->set('role'          , $data['role']);
-            $this->db->set('registration'  , $data['registration']);
-            $this->db->set('phone'         , $data['phone']);
+            $this->db->set('name', $data['name']);
 
             // Find record to update
             $this->db->where('id', $id);            
 
             // Update record
-            $this->db->update('tbl_student');
+            $this->db->update('tbl_department');
         }
 
         public function getAllRecords()
         {
             $this->db->select('*');
-            $this->db->from('tbl_student');
+            $this->db->from('tbl_department');
             $this->db->order_by('name');
 
             $query = $this->db->get();
@@ -38,7 +34,7 @@
         public function getById($id)
         {
             $this->db->select('*');
-            $this->db->from('tbl_student');
+            $this->db->from('tbl_department');
             $this->db->where('id', $id);
 
             $query = $this->db->get();
@@ -50,10 +46,7 @@
         public function deleteById($id)
         {
             $this->db->where('id', $id);
-            $this->db->delete('tbl_student');
+            $this->db->delete('tbl_department');
         }
     }
-
-
-
 ?>

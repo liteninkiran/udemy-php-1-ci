@@ -11,20 +11,20 @@
 
                     <ul class="dashboard-menu nav nav-list collapse in">
 
-                        <li><a href="<?php echo base_url(); ?>student/addStudent"><span class="fa fa-caret-right"></span>Add Student</a></li>
                         <li><a href="<?php echo base_url(); ?>student/studentList"><span class="fa fa-caret-right"></span>Student List</a></li>
+                        <li><a href="<?php echo base_url(); ?>student/addStudent"><span class="fa fa-caret-right"></span>Add Student</a></li>
                         
-                        <li><a href="adddep.html"><span class="fa fa-caret-right"></span>Add Department</a></li>
-                        <li><a href="deplist.html"><span class="fa fa-caret-right"></span>Department List</a></li>
+                        <li><a href="<?php echo base_url(); ?>department/departmentList"><span class="fa fa-caret-right"></span>Department List</a></li>
+                        <li><a href="<?php echo base_url(); ?>department/addDepartment"><span class="fa fa-caret-right"></span>Add Department</a></li>
                                             
-                        <li><a href="addauthor.html"><span class="fa fa-caret-right"></span>Add Author</a></li>
-                        <li><a href="authorlist.html"><span class="fa fa-caret-right"></span>Author List</a></li>
+                        <li><a href="<?php echo base_url(); ?>author/authorList"><span class="fa fa-caret-right"></span>Author List</a></li>
+                        <li><a href="<?php echo base_url(); ?>author/addAuthor"><span class="fa fa-caret-right"></span>Add Author</a></li>
                         
-                        <li><a href="addbook.html"><span class="fa fa-caret-right"></span>Add Book</a></li>
                         <li><a href="booklist.html"><span class="fa fa-caret-right"></span>Book List</a></li>
+                        <li><a href="addbook.html"><span class="fa fa-caret-right"></span>Add Book</a></li>
                         
-                        <li><a href="issuebook.html"><span class="fa fa-caret-right"></span>Issue Book</a></li>
                         <li><a href="listed.html"><span class="fa fa-caret-right"></span>Edit List</a></li>         
+                        <li><a href="issuebook.html"><span class="fa fa-caret-right"></span>Issue Book</a></li>
                 
                     </ul>
 

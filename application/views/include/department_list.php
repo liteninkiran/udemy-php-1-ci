@@ -8,7 +8,7 @@
     }
 
 ?>
-    <h2>Student List</h2>
+    <h2>Department List</h2>
 
     <hr/>
 
@@ -18,11 +18,7 @@
 
             <tr>
                 <th>Row</th>
-                <th>Name</th>
-                <th>Department</th>
-                <th>Role Number</th>
-                <th>Registration Number</th>
-                <th>Phone</th>
+                <th>Department Name</th>
                 <th style="width: 3.5em;"></th>
             </tr>
         </thead>
@@ -32,22 +28,16 @@
 <?php
             $i = 0;
 
-            foreach($studentData as $s)
+            foreach($departmentData as $d)
             {
-                $department = $this->department_model->getById($s->department_id);
-
                 $i++;
 ?>
                 <tr>
                     <td><?php echo $i; ?></td>
-                    <td><?php echo $s->name; ?></td>
-                    <td><?php echo $department->name; ?></td>
-                    <td><?php echo $s->role; ?></td>
-                    <td><?php echo $s->registration; ?></td>
-                    <td><?php echo $s->phone; ?></td>
+                    <td><?php echo $d->name; ?></td>
                     <td>
-                        <a href="<?php echo base_url(); ?>student/editStudent/<?php echo $s->id; ?>"><i class="fa fa-pencil"></i></a>
-                        <a href="<?php echo base_url(); ?>student/deleteStudent/<?php echo $s->id; ?>" role="button" data-toggle="modal" onclick="return confirm('Would you like to delete this record?')"><i class="fa fa-trash-o"></i></a>
+                        <a href="<?php echo base_url(); ?>department/editDepartment/<?php echo $d->id; ?>"><i class="fa fa-pencil"></i></a>
+                        <a href="<?php echo base_url(); ?>department/deleteDepartment/<?php echo $d->id; ?>" role="button" data-toggle="modal" onclick="return confirm('Would you like to delete this record?')"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
 <?php
