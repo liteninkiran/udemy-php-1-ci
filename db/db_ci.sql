@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2020 at 05:40 PM
+-- Generation Time: Sep 10, 2020 at 12:00 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -55,6 +55,30 @@ INSERT INTO `tbl_author` (`id`, `name`) VALUES
 (15, 'Ryan Holiday'),
 (12, 'Timothy Ferriss'),
 (10, 'Travis Bradberry');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_book`
+--
+
+DROP TABLE IF EXISTS `tbl_book`;
+CREATE TABLE `tbl_book` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `author_id` int(11) NOT NULL,
+  `total` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_book`
+--
+
+INSERT INTO `tbl_book` (`id`, `name`, `department_id`, `author_id`, `total`) VALUES
+(6, 'The Execution Factor', 4, 6, '5'),
+(7, 'Principles: Life and Work', 7, 6, '15'),
+(8, 'Think and Grow Rich', 4, 3, '12');
 
 -- --------------------------------------------------------
 
@@ -121,6 +145,14 @@ ALTER TABLE `tbl_author`
   ADD UNIQUE KEY `UC_author_name` (`name`) USING BTREE;
 
 --
+-- Indexes for table `tbl_book`
+--
+ALTER TABLE `tbl_book`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_book_author` (`author_id`),
+  ADD KEY `FK_book_department` (`department_id`);
+
+--
 -- Indexes for table `tbl_department`
 --
 ALTER TABLE `tbl_department`
@@ -141,23 +173,36 @@ ALTER TABLE `tbl_student`
 -- AUTO_INCREMENT for table `tbl_author`
 --
 ALTER TABLE `tbl_author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `tbl_book`
+--
+ALTER TABLE `tbl_book`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_department`
 --
 ALTER TABLE `tbl_department`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_student`
 --
 ALTER TABLE `tbl_student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tbl_book`
+--
+ALTER TABLE `tbl_book`
+  ADD CONSTRAINT `FK_book_author` FOREIGN KEY (`author_id`) REFERENCES `tbl_author` (`id`),
+  ADD CONSTRAINT `FK_book_department` FOREIGN KEY (`department_id`) REFERENCES `tbl_department` (`id`);
 
 --
 -- Constraints for table `tbl_student`
