@@ -16,7 +16,7 @@
 
     <style>
 
-        .department
+        .drop-down
         {
             border: 1px solid #ddd;
             padding: 5px;
@@ -38,7 +38,7 @@
 
             <div class="form-group">
                 <label class="required">Department</label><br>
-                <select name="department_id" class="department" required>
+                <select name="department_id" class="drop-down" required>
 <?php
                     foreach($departmentData as $d)
                     {

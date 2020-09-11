@@ -87,7 +87,6 @@
         {
             $id             = $this->input->post('id')             == '' ? null : $this->input->post('id');
             $name           = $this->input->post('name')           == '' ? null : $this->input->post('name');
-            $department     = $this->input->post('department')     == '' ? null : $this->input->post('department');
             $department_id  = $this->input->post('department_id')  == '' ? null : $this->input->post('department_id');
             $role           = $this->input->post('role')           == '' ? null : $this->input->post('role');
             $registration   = $this->input->post('registration')   == '' ? null : $this->input->post('registration');

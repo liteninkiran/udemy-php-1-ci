@@ -7,14 +7,25 @@
             $this->db->insert('tbl_loan', $data);
         }
 
+        public function endLoan($id)
+        {
+            // Set field values
+            $this->db->set('end_date', date('Y-m-d H:i:s'));
+
+            // Find record to update
+            $this->db->where('id', $id);            
+
+            // Update record
+            $this->db->update('tbl_loan');
+        }
+
         public function updateLoan($data, $id)
         {
             // Set field values
-            $this->db->set('name'          , $data['name']);
-            $this->db->set('department_id' , $data['department_id']);
-            $this->db->set('role'          , $data['role']);
-            $this->db->set('registration'  , $data['registration']);
-            $this->db->set('phone'         , $data['phone']);
+            $this->db->set('book_id'    , $data['book_id']);
+            $this->db->set('student_id' , $data['student_id']);
+            $this->db->set('start_date' , $data['start_date']);
+            $this->db->set('end_date'   , $data['end_date']);
 
             // Find record to update
             $this->db->where('id', $id);            

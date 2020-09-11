@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2020 at 12:00 AM
+-- Generation Time: Sep 11, 2020 at 04:48 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_ci`
 --
+DROP DATABASE IF EXISTS `db_ci`;
 CREATE DATABASE IF NOT EXISTS `db_ci` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `db_ci`;
 
@@ -110,6 +111,30 @@ INSERT INTO `tbl_department` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_loan`
+--
+
+DROP TABLE IF EXISTS `tbl_loan`;
+CREATE TABLE `tbl_loan` (
+  `id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_loan`
+--
+
+INSERT INTO `tbl_loan` (`id`, `book_id`, `student_id`, `start_date`, `end_date`) VALUES
+(4, 7, 1, '2020-09-10', '2020-09-11 16:45:41'),
+(5, 8, 2, '2020-09-11', '2020-09-11 16:47:25'),
+(6, 7, 4, '2020-09-11', '2020-09-11 16:47:28');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_student`
 --
 
@@ -159,6 +184,14 @@ ALTER TABLE `tbl_department`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_loan`
+--
+ALTER TABLE `tbl_loan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_loan_book` (`book_id`),
+  ADD KEY `FK_loan_student` (`student_id`);
+
+--
 -- Indexes for table `tbl_student`
 --
 ALTER TABLE `tbl_student`
@@ -188,6 +221,12 @@ ALTER TABLE `tbl_department`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `tbl_loan`
+--
+ALTER TABLE `tbl_loan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `tbl_student`
 --
 ALTER TABLE `tbl_student`
@@ -203,6 +242,13 @@ ALTER TABLE `tbl_student`
 ALTER TABLE `tbl_book`
   ADD CONSTRAINT `FK_book_author` FOREIGN KEY (`author_id`) REFERENCES `tbl_author` (`id`),
   ADD CONSTRAINT `FK_book_department` FOREIGN KEY (`department_id`) REFERENCES `tbl_department` (`id`);
+
+--
+-- Constraints for table `tbl_loan`
+--
+ALTER TABLE `tbl_loan`
+  ADD CONSTRAINT `FK_loan_book` FOREIGN KEY (`book_id`) REFERENCES `tbl_book` (`id`),
+  ADD CONSTRAINT `FK_loan_student` FOREIGN KEY (`student_id`) REFERENCES `tbl_student` (`id`);
 
 --
 -- Constraints for table `tbl_student`

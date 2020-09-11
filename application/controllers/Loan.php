@@ -11,12 +11,14 @@
             $data = array();
 
             $this->load->model('loan_model');
-            $this->load->model('department_model');
+            $this->load->model('book_model');
+            $this->load->model('student_model');
         }
 
         public function addLoan()
         {
-            $data['departmentData'] = $this->department_model->getAllRecords();
+            $data['bookData'] = $this->book_model->getAllRecords();
+            $data['studentData'] = $this->student_model->getAllRecords();
 
             $data['title'] = 'Add Loan';
             $data['header'] = $this->load->view('include/header', $data, TRUE);
@@ -29,17 +31,15 @@
 
         public function addLoanForm()
         {
-            $name           = $this->input->post('name')          == '' ? null : $this->input->post('name');
-            $department_id  = $this->input->post('department_id') == '' ? null : $this->input->post('department_id');
-            $role           = $this->input->post('role')          == '' ? null : $this->input->post('role');
-            $registration   = $this->input->post('registration')  == '' ? null : $this->input->post('registration');
-            $phone          = $this->input->post('phone')         == '' ? null : $this->input->post('phone');
+            $book_id     = $this->input->post('book_id'   ) == '' ? null : $this->input->post('book_id');
+            $student_id  = $this->input->post('student_id') == '' ? null : $this->input->post('student_id');
+            $start_date  = $this->input->post('start_date') == '' ? null : $this->input->post('start_date');
+            $end_date    = $this->input->post('end_date'  ) == '' ? null : $this->input->post('end_date');
 
-            $data['name']           = $name;
-            $data['department_id']  = $department_id;
-            $data['role']           = $role;
-            $data['registration']   = $registration;
-            $data['phone']          = $phone;
+            $data['book_id']     = $book_id;
+            $data['student_id']  = $student_id;
+            $data['start_date']  = $start_date;
+            $data['end_date']    = $end_date;
 
             $this->loan_model->insertLoan($data);
             $dataLoan['msg'] = '<span style="color:green">Record Created Successfully</span>';
@@ -71,38 +71,8 @@
 
         public function editLoan($id)
         {
-            $data['loanData'] = $this->loan_model->getById($id);
-            $data['departmentData'] = $this->department_model->getAllRecords();
-
-            $data['title'] = 'Edit Loan';
-            $data['header'] = $this->load->view('include/header', $data, TRUE);
-            $data['sidebar'] = $this->load->view('include/sidebar', '', TRUE);
-            $data['content'] = $this->load->view('include/loan_edit', $data, TRUE);
-            $data['footer'] = $this->load->view('include/footer', '', TRUE);
-
-            $this->load->view('home', $data);
-        }
-
-        public function editLoanForm()
-        {
-            $id             = $this->input->post('id')             == '' ? null : $this->input->post('id');
-            $name           = $this->input->post('name')           == '' ? null : $this->input->post('name');
-            $department     = $this->input->post('department')     == '' ? null : $this->input->post('department');
-            $department_id  = $this->input->post('department_id')  == '' ? null : $this->input->post('department_id');
-            $role           = $this->input->post('role')           == '' ? null : $this->input->post('role');
-            $registration   = $this->input->post('registration')   == '' ? null : $this->input->post('registration');
-            $phone          = $this->input->post('phone')          == '' ? null : $this->input->post('phone');
-
-            $data['name']           = $name;
-            $data['department_id']  = $department_id;
-            $data['role']           = $role;
-            $data['registration']   = $registration;
-            $data['phone']          = $phone;
-
-            $this->loan_model->updateLoan($data, $id);
-            $dataLoan['msg'] = '<span style="color:green">Record Updated Successfully</span>';
-            $this->session->set_flashdata($dataLoan);
-            redirect('loan/loanList');
+            $this->loan_model->endLoan($id);
+            redirect('loan/loanList/');
         }
     }
 ?>

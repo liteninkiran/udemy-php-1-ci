@@ -16,7 +16,7 @@
 
     <style>
 
-        .department
+        .drop-down
         {
             border: 1px solid #ddd;
             padding: 5px;
@@ -27,51 +27,41 @@
 
     <div class="panel-body" style="width:600px;">
 
-        <form action="<?php echo base_url(); ?>loan/editLoanForm" method="post">
+        <form action="<?php echo base_url(); ?>loan/addLoanForm" method="post">
 
             <input type="hidden" name="id" value="<?php echo $loanData->id; ?>" required>
 
             <div class="form-group">
-                <label class="required">Loan Name</label>
-                <input type="text" name="name" class="form-control span12" value="<?php echo $loanData->name; ?>" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Department</label><br>
-                <select name="department_id" class="department" required>
+                <label class="required">Book</label><br>
+                <select name="book_id" class="drop-down" value="<?php echo $loanData->book_id; ?>" required>
 <?php
-                    foreach($departmentData as $d)
+                    foreach($bookData as $b)
                     {
-                        if($d->id == $loanData->department_id)
-                        {
 ?>
-                            <option value="<?php echo $d->id; ?>" selected="selected"><?php echo $d->name; ?></option>
+                        <option value="<?php echo $b->id; ?>"><?php echo $b->name; ?></option>
 <?php  
-                        }
-                        else
-                        {
-?>
-                            <option value="<?php echo $d->id; ?>"><?php echo $d->name; ?></option>
-<?php  
-                        }
                     }
 ?>
                 </select>
             </div>
 
             <div class="form-group">
-                <label>Role Number</label>
-                <input type="number" name="role" class="form-control span12" value="<?php echo $loanData->role; ?>">
+                <label class="required">Student</label><br>
+                <select name="student_id" class="drop-down" value="<?php echo $loanData->student_id; ?>" required>
+<?php
+                    foreach($studentData as $s)
+                    {
+?>
+                        <option value="<?php echo $s->id; ?>"><?php echo $s->name; ?></option>
+<?php  
+                    }
+?>
+                </select>
             </div>
 
             <div class="form-group">
-                <label>Registration Number</label>
-                <input type="number" name="registration" class="form-control span12" value="<?php echo $loanData->registration; ?>">
-            </div>
-
-            <div class="form-group">
-                <label>Phone</label>
-                <input type="text" name="phone" class="form-control span12" value="<?php echo $loanData->phone; ?>">
+                <label class="required">Start Date</label>
+                <input type="date" name="start_date" class="form-control span12" value="<?php echo date('Y-m-d'); ?>" required>
             </div>
 
             <div class="form-group">
@@ -81,4 +71,3 @@
         </form>
 
     </div>
-
