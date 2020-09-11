@@ -1,4 +1,25 @@
 
+    <script>
+
+        $(document).ready(function()
+        {
+            $("#department").change(function()
+            {
+                var depId = $("#department").val();
+                $.ajax(
+                {
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>loan/addLoan/" + depId,
+                    success: function(data)
+                    {
+                        $("#book").html(data);
+                    }
+                })
+            })
+        });
+
+    </script>
+
     <h2>Add Loan</h2>
 
     <hr/>
@@ -30,8 +51,23 @@
         <form action="<?php echo base_url(); ?>loan/addLoanForm" method="post">
 
             <div class="form-group">
+                <label>Department</label><br>
+                <select name="department_id" class="drop-down" id="department">
+                    <option value="">PLEASE SELECT</option>
+<?php
+                    foreach($departmentData as $d)
+                    {
+?>
+                        <option value="<?php echo $d->id; ?>"><?php echo $d->name; ?></option>
+<?php  
+                    }
+?>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label class="required">Book</label><br>
-                <select name="book_id" class="drop-down" required>
+                <select name="book_id" class="drop-down" id="book" required>
                     <option value="">PLEASE SELECT</option>
 <?php
                     foreach($bookData as $b)
@@ -46,7 +82,7 @@
 
             <div class="form-group">
                 <label class="required">Student</label><br>
-                <select name="student_id" class="drop-down" required>
+                <select name="student_id" class="drop-down" id="student" required>
                     <option value="">PLEASE SELECT</option>
 <?php
                     foreach($studentData as $s)

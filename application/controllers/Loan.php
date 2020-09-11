@@ -13,12 +13,22 @@
             $this->load->model('loan_model');
             $this->load->model('book_model');
             $this->load->model('student_model');
+            $this->load->model('department_model');
         }
 
-        public function addLoan()
+        public function addLoan($department_id = 0)
         {
-            $data['bookData'] = $this->book_model->getAllRecords();
+            if($department_id == 0)
+            {
+                $data['bookData'] = $this->book_model->getAllRecords();
+            }
+            else
+            {
+                $data['bookData'] = $this->book_model->getByDepartment($department_id);
+            }
+
             $data['studentData'] = $this->student_model->getAllRecords();
+            $data['departmentData'] = $this->department_model->getAllRecords();
 
             $data['title'] = 'Add Loan';
             $data['header'] = $this->load->view('include/header', $data, TRUE);

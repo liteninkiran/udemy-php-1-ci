@@ -25,6 +25,7 @@
                         
                         <li><a href="<?php echo base_url(); ?>loan/loanList"><span class="fa fa-caret-right"></span>Loan List</a></li>         
                         <li><a href="<?php echo base_url(); ?>loan/addLoan"><span class="fa fa-caret-right"></span>Issue Book</a></li>
+                        <!-- <li><a href="<?php echo base_url(); ?>loan/getByDepartment/4"><span class="fa fa-caret-right"></span>Issue Book</a></li> -->
                 
                     </ul>
 

@@ -46,6 +46,18 @@
             return $result;
         }
 
+        public function getByDepartment($department_id)
+        {
+            $this->db->select('*');
+            $this->db->from('tbl_book');
+            $this->db->where('department_id', $department_id);
+
+            $query = $this->db->get();
+            $result = $query->result();
+
+            return $result;
+        }
+
         public function deleteById($id)
         {
             $this->db->where('id', $id);
